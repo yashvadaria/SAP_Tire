@@ -4,7 +4,7 @@ import ArrowUpIcon from "@heroicons/react/24/solid/ArrowUpIcon";
 import CurrencyDollarIcon from "@heroicons/react/24/solid/CurrencyDollarIcon";
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from "@mui/material";
 
-export const RevenueMissed = (props) => {
+export const RevenueTurnedAway = (props) => {
   const { difference, val, positive = false, sx, value } = props;
 
   return (
@@ -13,7 +13,7 @@ export const RevenueMissed = (props) => {
         <Stack alignItems="flex-start" direction="row" justifyContent="space-between" spacing={3}>
           <Stack spacing={1}>
             <Typography color="text.secondary" variant="overline">
-              Revenue Missed
+              Revenue Turned Away
             </Typography>
             <Typography variant="h4">{value}</Typography>
             <Typography color="text.secondary" variant="overline">
@@ -22,7 +22,7 @@ export const RevenueMissed = (props) => {
           </Stack>
           <Avatar
             sx={{
-              backgroundColor: "#DDDEFE",
+              backgroundColor: "#FF0011",
               height: 56,
               width: 56,
             }}
@@ -37,7 +37,7 @@ export const RevenueMissed = (props) => {
   );
 };
 
-RevenueMissed.prototypes = {
+RevenueTurnedAway.prototypes = {
   difference: PropTypes.number,
   positive: PropTypes.bool,
   sx: PropTypes.object,

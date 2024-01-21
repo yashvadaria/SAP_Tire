@@ -38,7 +38,7 @@ export const VehicleTypeDistribution = (props) => {
 
   return (
     <Card sx={sx}>
-      <CardHeader title="Vehicle Type Distribution" />
+      <CardHeader title="Vehicle Serviced" />
       <CardContent>
         <div className="donut">
           <Chart options={options} series={chartSeries} type="pie" width={400} />

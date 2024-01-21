@@ -3,7 +3,7 @@ import CurrencyDollarIcon from "@heroicons/react/24/solid/CurrencyDollarIcon";
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from "@mui/material";
 
 export const RevenueGenerated = (props) => {
-  const { value, sx } = props;
+  const { value, sx, val } = props;
 
   return (
     <Card sx={sx}>
@@ -13,7 +13,11 @@ export const RevenueGenerated = (props) => {
             <Typography color="text.secondary" variant="overline">
               Revenue Generated
             </Typography>
+
             <Typography variant="h4">{value}</Typography>
+            <Typography color="text.secondary" variant="overline">
+              $ {val}
+            </Typography>
           </Stack>
           <Avatar
             sx={{
