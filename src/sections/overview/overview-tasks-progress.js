@@ -20,9 +20,9 @@ export const OverviewTasksProgress = (props) => {
         <Stack alignItems="flex-start" direction="row" justifyContent="space-between" spacing={3}>
           <Stack spacing={1}>
             <Typography color="text.secondary" gutterBottom variant="overline">
-              Success Ratio
+              Customers Turned Away
             </Typography>
-            <Typography variant="h4">{value}%</Typography>
+            <Typography variant="h4">{value}</Typography>
           </Stack>
           <Avatar
             sx={{
@@ -36,9 +36,6 @@ export const OverviewTasksProgress = (props) => {
             </SvgIcon>
           </Avatar>
         </Stack>
-        <Box sx={{ mt: 3 }}>
-          <LinearProgress value={value} variant="determinate" />
-        </Box>
       </CardContent>
     </Card>
   );

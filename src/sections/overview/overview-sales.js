@@ -13,6 +13,20 @@ import {
 import { alpha, useTheme } from "@mui/material/styles";
 import { Chart } from "src/components/chart";
 
+function nFormatter(num, digits) {
+  const lookup = [
+    { value: 1, symbol: "" },
+    { value: 1e3, symbol: "k" },
+    { value: 1e6, symbol: "M" },
+    { value: 1e9, symbol: "G" },
+    { value: 1e12, symbol: "T" },
+    { value: 1e15, symbol: "P" },
+    { value: 1e18, symbol: "E" },
+  ];
+  const regexp = /\.0+$|(?<=\.[0-9]*[1-9])0+$/;
+  const item = lookup.findLast((item) => num >= item.value);
+  return item ? (num / item.value).toFixed(digits).replace(regexp, "").concat(item.symbol) : "0";
+}
 const useChartOptions = (props) => {
   const theme = useTheme();
 
@@ -81,7 +95,7 @@ const useChartOptions = (props) => {
     },
     yaxis: {
       labels: {
-        formatter: (value) => (value > 0 ? `${value}K` : `${value}`),
+        formatter: (value) => "$" + nFormatter(value),
         offsetX: -10,
         style: {
           colors: theme.palette.text.secondary,
@@ -97,7 +111,7 @@ export const OverviewSales = (props) => {
 
   return (
     <Card sx={sx}>
-      <CardHeader title="Weekly Trend" />
+      <CardHeader title="Weekly Revenue" />
       <CardContent>
         <Chart height={350} options={chartOptions} series={chartSeries} type="bar" width="100%" />
       </CardContent>

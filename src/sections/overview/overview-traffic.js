@@ -38,7 +38,7 @@ export const OverviewTraffic = (props) => {
 
   return (
     <Card sx={sx}>
-      <CardHeader title="Vehicle Type" />
+      <CardHeader title="Vehicle Type Distribution" />
       <CardContent>
         <div className="donut">
           <Chart options={options} series={chartSeries} type="pie" width={400} />
