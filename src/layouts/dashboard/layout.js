@@ -44,7 +44,7 @@ export const Layout = withAuthGuard((props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [pathname]
   );
-
+  useEffect(() => { localStorage.setItem('selectedAlgo', 1); }, [])
   return (
     <>
       {/* <TopNav onNavOpen={() => setOpenNav(true)} /> */}

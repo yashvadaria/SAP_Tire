@@ -8,6 +8,9 @@ import {
   Button,
   Divider,
   Drawer,
+  FormControl,
+  MenuItem,
+  Select,
   Stack,
   SvgIcon,
   Typography,
@@ -17,11 +20,20 @@ import { Logo } from 'src/components/logo';
 import { Scrollbar } from 'src/components/scrollbar';
 import { items } from './config';
 import { SideNavItem } from './side-nav-item';
+import { useEffect, useState } from 'react';
 
 export const SideNav = (props) => {
   const { open, onClose } = props;
   const pathname = usePathname();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
+  const [algo, setAlgo] = useState(1);
+
+  const handleChange = (event) => {
+    setAlgo(event.target.value);
+    // Your additional logic here
+    console.log(event.target.value)
+    localStorage.setItem('selectedAlgo', event.target.value);
+  };
 
   const content = (
     <Scrollbar
@@ -124,6 +136,26 @@ export const SideNav = (props) => {
           </Stack>
         </Box>
         <Divider sx={{ borderColor: 'neutral.700' }} />
+        <Box
+          sx={{
+            px: 2,
+            py: 3
+          }}
+        >
+          <FormControl fullWidth >
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={algo}
+              defaultValue={1}
+              onChange={handleChange}
+              sx={{ color: 'white', '&:before': { borderColor: 'neutral.700' }, '&:after': { borderColor: 'neutral.700' } }}
+            >
+              <MenuItem value={1}>Greedy</MenuItem>
+              <MenuItem value={2}>Heuristic</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
         {/* <Box
           sx={{
             px: 2,
