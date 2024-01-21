@@ -7,6 +7,7 @@ import UserPlusIcon from "@heroicons/react/24/solid/UserPlusIcon";
 import UsersIcon from "@heroicons/react/24/solid/UsersIcon";
 import XCircleIcon from "@heroicons/react/24/solid/XCircleIcon";
 import { SvgIcon } from "@mui/material";
+import { CalendarIcon } from "@mui/x-date-pickers";
 
 export const items = [
   {
@@ -14,7 +15,7 @@ export const items = [
     path: "/",
     icon: (
       <SvgIcon fontSize="small">
-        <ChartBarIcon />
+        <CalendarIcon />
       </SvgIcon>
     ),
   },
@@ -32,7 +33,7 @@ export const items = [
     path: "/results",
     icon: (
       <SvgIcon fontSize="small">
-        <ShoppingBagIcon />
+        <ChartBarIcon />
       </SvgIcon>
     ),
   },
