@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { Chart } from "src/components/chart";
 
-export const OverviewTraffic = (props) => {
+export const VehicleTypeDistribution = (props) => {
   const { chartSeries, labels, sx } = props;
   const options = {
     chart: {
@@ -48,7 +48,7 @@ export const OverviewTraffic = (props) => {
   );
 };
 
-OverviewTraffic.propTypes = {
+VehicleTypeDistribution.propTypes = {
   chartSeries: PropTypes.array.isRequired,
   labels: PropTypes.array.isRequired,
   sx: PropTypes.object,

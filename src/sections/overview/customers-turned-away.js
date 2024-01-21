@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 
-export const OverviewTasksProgress = (props) => {
+export const CustomersTurnedAway = (props) => {
   const { value, sx } = props;
 
   return (
@@ -41,7 +41,7 @@ export const OverviewTasksProgress = (props) => {
   );
 };
 
-OverviewTasksProgress.propTypes = {
+CustomersTurnedAway.propTypes = {
   value: PropTypes.number.isRequired,
   sx: PropTypes.object,
 };

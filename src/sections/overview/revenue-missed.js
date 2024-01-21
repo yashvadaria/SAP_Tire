@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
+import ArrowDownIcon from "@heroicons/react/24/solid/ArrowDownIcon";
+import ArrowUpIcon from "@heroicons/react/24/solid/ArrowUpIcon";
 import CurrencyDollarIcon from "@heroicons/react/24/solid/CurrencyDollarIcon";
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from "@mui/material";
 
-export const OverviewTotalProfit = (props) => {
-  const { value, sx } = props;
+export const RevenueMissed = (props) => {
+  const { difference, positive = false, sx, value } = props;
 
   return (
     <Card sx={sx}>
@@ -11,13 +13,13 @@ export const OverviewTotalProfit = (props) => {
         <Stack alignItems="flex-start" direction="row" justifyContent="space-between" spacing={3}>
           <Stack spacing={1}>
             <Typography color="text.secondary" variant="overline">
-              Revenue Generated
+              Revenue Missed (from turned away customers)
             </Typography>
             <Typography variant="h4">{value}</Typography>
           </Stack>
           <Avatar
             sx={{
-              backgroundColor: "primary.main",
+              backgroundColor: "#DDDEFE",
               height: 56,
               width: 56,
             }}
@@ -32,7 +34,9 @@ export const OverviewTotalProfit = (props) => {
   );
 };
 
-OverviewTotalProfit.propTypes = {
-  value: PropTypes.string,
+RevenueMissed.prototypes = {
+  difference: PropTypes.number,
+  positive: PropTypes.bool,
   sx: PropTypes.object,
+  value: PropTypes.string.isRequired,
 };
