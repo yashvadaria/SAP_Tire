@@ -22,7 +22,7 @@ export const RevenueMissed = (props) => {
           </Stack>
           <Avatar
             sx={{
-              backgroundColor: "#DDDEFE",
+              backgroundColor: "#FF9843",
               height: 56,
               width: 56,
             }}

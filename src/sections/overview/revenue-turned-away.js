@@ -22,7 +22,7 @@ export const RevenueTurnedAway = (props) => {
           </Stack>
           <Avatar
             sx={{
-              backgroundColor: "#FF0011",
+              backgroundColor: "#D04848",
               height: 56,
               width: 56,
             }}
