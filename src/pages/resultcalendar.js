@@ -17,9 +17,9 @@ const SIDE_NAV_WIDTH = 280;
 const TOP_NAV_HEIGHT = 64;
 const BASE_URL = "http://127.0.0.1:8000";
 const UPLOAD_BASE_URL = `${BASE_URL}/uploadfile/`;
-const GET_URL = `${BASE_URL}/calendar`;
+const GET_URL = `${BASE_URL}/filteredcalendar`;
 
-const MyCalendar = (props) => {
+const ResultCalendar = (props) => {
     const [events, setEvents] = useState([]);
     const [result, setResult] = useState("");
     let fileInput = useRef(null);
@@ -38,6 +38,7 @@ const MyCalendar = (props) => {
                 params: {
                     startdate: startDate1,
                     enddate: endDate1,
+                    type: "type" + localStorage.getItem("selectedAlgo")
                 },
             });
 
@@ -104,6 +105,10 @@ const MyCalendar = (props) => {
         }
     };
 
+    // useEffect(() => {
+    //     // Fetch data initially or whenever startDate and endDate change
+    //     fetchData('2022-10-01', '2022-10-10');
+    // }, []); // Empty dependency array means it will only run on mount
 
     // Function to handle file change
     const handleFileChange = async (e) => {
@@ -127,7 +132,6 @@ const MyCalendar = (props) => {
             } catch (err) {
                 console.log(err);
             }
-
         }
     };
     const eventStyleGetter = (event, start, end, isSelected) => {
@@ -209,26 +213,13 @@ const MyCalendar = (props) => {
             >
                 <Container maxWidth="xl">
                     <Stack spacing={3} marginBottom={2}>
-                        <Typography variant="h4">Overview</Typography>
+                        <Typography variant="h4">Optimal Overview</Typography>
 
-                        <Stack direction="row" spacing={4}>
+                        <Stack direction="row" justifyContent="center" spacing={4}>
                             <Stack spacing={1}>
-                                <Stack spacing={1} >
+                                <Stack alignItems="center" justifyContent={"center"} direction="column" spacing={1}>
+                                    <div style={{ height: 20 }}></div>
 
-                                    {/* {result === "" && (
-                                        <img height={400} alt="" src="/assets/calendar-illustration.svg" />
-                                    )} */}
-                                    <Button
-                                        onClick={() => fileInput.click()}
-                                        color="inherit"
-                                        startIcon={
-                                            <SvgIcon fontSize="small">
-                                                <ArrowUpOnSquareIcon />
-                                            </SvgIcon>
-                                        }
-                                    >
-                                        Import CSV
-                                    </Button>
 
                                     <input
                                         type="file"
@@ -236,10 +227,17 @@ const MyCalendar = (props) => {
                                         style={{ display: "none" }}
                                         onChange={(e) => handleFileChange(e)}
                                     />
-
+                                    {/* <Button
+                                        color="inherit"
+                                        startIcon={(
+                                            <SvgIcon fontSize="small">
+                                                <ArrowDownOnSquareIcon />
+                                            </SvgIcon>
+                                        )}
+                                    >
+                                        Export
+                                    </Button> */}
                                 </Stack>
-
-
                             </Stack>
                             <Stack alignItems="center" justifyContent={"space-around"} style={{ display: "flex", flexDirection: "row" }} spacing={1}>
 
@@ -269,14 +267,13 @@ const MyCalendar = (props) => {
                             defaultDate={new Date("2022-10-01")}
                             onNavigate={handleCalendarNavigate}
                             views={['month', 'week', 'day']}
-                            weekLayoutAlgorithm="no-overlap"
+                            dayLayoutAlgorithm="no-overlap"
                         />
                     )}
                 </Container>
             </Box>
-
         </div>
     );
 };
 
-export default MyCalendar;
+export default ResultCalendar;

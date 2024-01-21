@@ -33,6 +33,7 @@ const Page = () => {
   const selectedAlgo = localStorage.getItem("selectedAlgo");
   let profitArray, lossArray;
   useEffect(() => {
+    console.log("hellopw")
     axios.get("http://localhost:8000" + "/algorithm/?type=type" + selectedAlgo).then((res) => {
       setData(res.data);
     });
